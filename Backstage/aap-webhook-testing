@@ -1,0 +1,13 @@
+{
+  "recipients": {
+    "type": "entity",
+    "entityRef": "user:default/{{ extra_vars.backstage_user | default(job.created_by) }}"
+  },
+  "payload": {
+    "title": "AAP Job {{ job.status }}: {{ job.name }}",
+    "description": "Environment: {{ extra_vars.environment }}\n{{ extra_vars.custom_message }}\n\nJob #{{ job.id }} completed with status: {{ job.status }}",
+    "severity": "{% if job.status == 'failed' %}high{% else %}normal{% endif %}",
+    "topic": "aap-{{ extra_vars.environment }}",
+    "link": "{{ job_metadata.url }}"
+  }
+}
