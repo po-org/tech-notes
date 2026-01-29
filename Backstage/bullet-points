@@ -1,0 +1,35 @@
+Configured and deployed Red Hat Developer Hub (RHDH) as enterprise developer portal solution
+Integrated ArgoCD automation for continuous deployment workflows
+Developed custom dynamic plugins to extend RHDH functionality
+Modified existing one server build to utilize RHDH frontend architecture
+
+Authentication & Identity Management
+
+Configured Keycloak as identity provider for RHDH authentication
+Implemented initial GitHub authentication for portal access
+Migrated authentication from GitHub to enterprise SSO solution
+Created local parent groups in Keycloak for organizational hierarchy
+Developed CI pipeline to automatically map users to individual groups via xbags
+
+Access Control & Security
+
+Enabled and configured Role-Based Access Control (RBAC) for all IT users
+Established granular permissions framework across developer portal
+
+Repository & Artifact Management
+
+Established standardized repository setup and automation processes
+Migrated custom DXP plugins from OpenShift containers to Nexus repository
+Improved artifact management and version control practices
+
+Development & Deployment Automation
+
+Created GitHub Actions rollout script for local development environments
+Automated OpenShift pod deployment and rollout processes
+Established plugin pipeline CI for proper compilation within RHDH
+
+API Integration & Extensibility
+
+Added external API access to RHDH for future development capabilities
+Established API connection to Ansible Automation Platform (AAP)
+Tested and validated workflow execution through AAP integration
