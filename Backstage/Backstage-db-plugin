@@ -1,0 +1,69 @@
+✅ Option 1 — Use the Software Catalog (Lowest risk)
+
+What
+
+Store data as metadata (annotations/labels) in the catalog
+
+Use for
+
+request_id, request_category, status (lightweight tracking)
+
+Why
+
+No database work
+Fully supported in Backstage
+Zero risk to the core DB
+
+Plain rule
+
+“If it’s simple tracking data, use the catalog—no tables needed.”
+
+✅ Option 2 — Custom plugin with its own schema (Recommended default)
+
+What
+
+Create tables inside your plugin, in your own schema
+
+Use for
+
+Workflow data, approvals, audit logs, anything dynamic
+
+Why
+
+Safe for Red Hat Developer Hub core DB
+Clear ownership boundary
+Standard Backstage pattern
+
+Plain rule
+
+“You get your own space in the DB—only use that space.”
+
+✅ Option 3 — Separate database (Safest isolation)
+
+What
+
+Your plugin uses a completely separate Postgres database
+
+Use for
+
+Critical systems
+Growing or long-term applications
+
+Why
+
+Zero chance of impacting RHDH database
+Full control and isolation
+
+Plain rule
+
+“If it’s important or growing, use your own database.”
+
+🚫 Always prohibited (keep this clear)
+Do NOT modify or write to RHDH core tables
+Do NOT use psql to insert/update data directly
+Do NOT read from internal tables (catalog, entities, etc.)
+🧭 Simple recommendation to give them
+
+“Start with a plugin using your own schema.
+Use the catalog for simple metadata.
+Move to a separate database if this becomes critical.”
